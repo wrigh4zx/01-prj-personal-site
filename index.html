@@ -7,6 +7,14 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <!-- Orange splash screen - hidden by default -->
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <h2>Message Sent!</h2>
+            <p>Thank you for reaching out. I'll get back to you soon!</p>
+        </div>
+    </div>
+
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="nav-container">
@@ -155,7 +163,8 @@
                 <!-- Contact Form -->
                 <div class="contact-form">
                     <h3>Send me a message</h3>
-                    <form>
+                    <!-- Form now sends email when submitted -->
+                    <form action="mailto:wrigh4zx@dukes.jmu.edu" method="POST" enctype="text/plain">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -189,5 +198,8 @@
             <p>&copy; 2026 Z Wright. All rights reserved.</p>
         </div>
     </footer>
+
+    <!-- Add JavaScript file at the end of body -->
+    <script src="script.js"></script>
 </body>
 </html>

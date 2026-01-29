@@ -6,8 +6,11 @@
     --bg-secondary: #f8f9fa;
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
-    --accent-color: #0066cc;
-    --accent-light: #e6f0ff;
+    /* Purple gradient colors */
+    --accent-color: #a259ff; /* Purple instead of blue */
+    --accent-dark: #6a82fb; /* Darker purple-blue for gradient */
+    --accent-light: #f3ebff; /* Light purple instead of light blue */
+    --accent-gradient: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%); /* Purple gradient */
     --border-color: #e0e0e0;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -130,15 +133,15 @@ body {
     font-size: 16px;
 }
 
-/* Primary button (filled blue) */
+/* Primary button (filled with purple gradient) */
 .btn-primary {
-    background-color: var(--accent-color);
+    background: var(--accent-gradient); /* Use gradient instead of solid color */
     color: white;
 }
 
 /* Primary button hover effect */
 .btn-primary:hover {
-    background-color: #0052a3;
+    background: linear-gradient(90deg, #8a3fd9 0%, #5268db 100%); /* Darker gradient on hover */
     box-shadow: var(--shadow-hover);
     transform: translateY(-2px);
 }
@@ -173,7 +176,7 @@ body {
 
 /* About section description text */
 .about > .container > p {
-    font-size: 16px;
+    font-size: 18px; /* Increased from 16px to 18px for better readability */
     color: var(--text-secondary);
     margin-bottom: 50px;
     text-align: center;
@@ -241,9 +244,9 @@ body {
     transition: all 0.3s ease;
 }
 
-/* Skill pill hover effect */
+/* Skill pill hover effect - uses gradient */
 .skill-pill:hover {
-    background-color: var(--accent-color);
+    background: var(--accent-gradient); /* Use gradient on hover */
     color: white;
     transform: scale(1.05);
 }
@@ -282,6 +285,9 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    /* Add flexbox to make cards equal height */
+    display: flex;
+    flex-direction: column;
 }
 
 /* Project card hover effect */
@@ -303,6 +309,8 @@ body {
     margin-bottom: 20px;
     font-size: 14px;
     line-height: 1.6;
+    /* Make description grow to push links to bottom */
+    flex-grow: 1;
 }
 
 /* Add padding to Coming Soon text paragraphs */
@@ -339,7 +347,7 @@ body {
 
 /* Project link hover effect */
 .link:hover {
-    color: #0052a3;
+    color: #8a3fd9; /* Darker purple on hover */
     text-decoration: underline;
 }
 
@@ -477,7 +485,7 @@ body {
 
 /* Contact links hover effect */
 .contact-links a:hover {
-    color: #0052a3;
+    color: #8a3fd9; /* Darker purple on hover */
     text-decoration: underline;
 }
 
@@ -495,6 +503,86 @@ body {
 .footer p {
     color: #ccc;
 }
+
+/* ===== SPLASH SCREEN ===== */
+
+/* Orange splash screen - covers entire page */
+.splash-screen {
+    /* Position it over everything */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Make it invisible at first */
+    display: none;
+    /* Put it above everything else */
+    z-index: 9999;
+    /* Prevent clicking through */
+    pointer-events: none;
+}
+
+/* When splash screen is active */
+.splash-screen.active {
+    display: block;
+    pointer-events: all;
+}
+
+/* The orange "water" that fills up from bottom */
+.splash-screen::before {
+    content: '';
+    /* Position at bottom of screen */
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    /* Start with no height */
+    height: 0;
+    /* Bright orange color */
+    background-color: #ff9800;
+    /* Animate the height to fill up */
+    transition: height 1.5s ease-out;
+}
+
+/* When active, make the water fill to 100% height */
+.splash-screen.active::before {
+    height: 100%;
+}
+
+/* Content inside splash screen */
+.splash-content {
+    /* Position in center of screen */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    padding: 40px;
+    /* Start invisible */
+    opacity: 0;
+    /* Fade in after water fills */
+    transition: opacity 0.5s ease 1s;
+}
+
+/* Show content after water fills up */
+.splash-screen.active .splash-content {
+    opacity: 1;
+}
+
+/* Splash screen heading */
+.splash-content h2 {
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+/* Splash screen text */
+.splash-content p {
+    font-size: 20px;
+}
+
+/* Remove the old slideDown animation */
+/* Animation for splash screen text - REMOVED */
 
 /* ===== RESPONSIVE DESIGN (Mobile) ===== */
 /* These styles apply when screen width is 768px or smaller */
