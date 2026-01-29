@@ -1,0 +1,598 @@
+/* ===== ROOT & GENERAL STYLES ===== */
+/* These are color variables we use throughout the website */
+:root {
+    /* Color Palette */
+    --bg-primary: #ffffff;
+    --bg-secondary: #f8f9fa;
+    --text-primary: #1a1a1a;
+    --text-secondary: #666666;
+    --accent-color: #0066cc;
+    --accent-light: #e6f0ff;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* Reset default styles from browser */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base styles for the entire page */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    line-height: 1.6;
+    color: var(--text-primary);
+    background-color: var(--bg-primary);
+}
+
+/* Container keeps content centered with max-width and adds padding */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* ===== NAVIGATION ===== */
+
+/* Sticky navigation stays at top when scrolling */
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-primary);
+    box-shadow: var(--shadow);
+    z-index: 100;
+}
+
+/* Navigation container aligns logo and menu horizontally */
+.nav-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+/* Logo styling */
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--accent-color);
+}
+
+/* Navigation menu uses flexbox for horizontal layout */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+}
+
+/* Navigation links styling */
+.nav-menu a {
+    text-decoration: none;
+    color: var(--text-primary);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+/* Links change color on hover */
+.nav-menu a:hover {
+    color: var(--accent-color);
+}
+
+/* ===== HERO SECTION ===== */
+
+/* Hero section with gradient background */
+.hero {
+    background: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-primary) 100%);
+    padding: 100px 0;
+    text-align: center;
+}
+
+/* Large heading in hero section */
+.hero h1 {
+    font-size: 48px;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+/* Subtitle text in hero */
+.hero-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 40px;
+}
+
+/* Hero buttons container uses flexbox */
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* ===== BUTTONS ===== */
+
+/* Base button styling */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* Primary button (filled blue) */
+.btn-primary {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+/* Primary button hover effect */
+.btn-primary:hover {
+    background-color: #0052a3;
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-2px);
+}
+
+/* Secondary button (outlined blue) */
+.btn-secondary {
+    background-color: transparent;
+    color: var(--accent-color);
+    border: 2px solid var(--accent-color);
+}
+
+/* Secondary button hover effect */
+.btn-secondary:hover {
+    background-color: var(--accent-light);
+    transform: translateY(-2px);
+}
+
+/* ===== ABOUT SECTION ===== */
+
+/* About section with light background */
+.about {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+}
+
+/* About section heading */
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* About section description text */
+.about > .container > p {
+    font-size: 16px;
+    color: var(--text-secondary);
+    margin-bottom: 50px;
+    text-align: center;
+    line-height: 1.8;
+}
+
+/* About info uses flexbox to display items in a row */
+.about-info {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+/* Individual info items */
+.info-item {
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+}
+
+/* Info item heading */
+.info-item h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: var(--accent-color);
+}
+
+/* Info item text */
+.info-item p {
+    color: var(--text-secondary);
+    font-size: 16px;
+}
+
+/* ===== SKILLS SECTION ===== */
+
+/* Skills section padding */
+.skills {
+    padding: 80px 0;
+}
+
+/* Skills section heading */
+.skills h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Skills grid uses flexbox to wrap skills in rows */
+.skills-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+/* Skill pills - rounded tag style buttons */
+.skill-pill {
+    background-color: var(--accent-light);
+    color: var(--accent-color);
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Skill pill hover effect */
+.skill-pill:hover {
+    background-color: var(--accent-color);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* ===== PROJECTS SECTION ===== */
+
+/* Projects section with light background */
+.projects {
+    padding: 80px 0;
+    background-color: var(--bg-secondary);
+}
+
+/* Projects section heading */
+.projects h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Projects grid uses flexbox to display cards in rows */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* Project card styling */
+.project-card {
+    background-color: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    width: 100%;
+    max-width: 300px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Project card hover effect */
+.project-card:hover {
+    box-shadow: var(--shadow-hover);
+    transform: translateY(-5px);
+}
+
+/* Project card heading */
+.project-card h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    color: var(--text-primary);
+}
+
+/* Project card description */
+.project-card p {
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+/* Add padding to Coming Soon text paragraphs */
+.project-card p strong {
+    display: block;
+    padding-bottom: 40px;
+}
+
+/* Project links container */
+.project-links {
+    display: flex;
+    gap: 15px;
+}
+
+/* Add space above links for Coming Soon projects */
+.project-card:has(.coming-soon) .project-links {
+    margin-top: 20px;
+}
+
+/* Project link styling */
+.link {
+    color: var(--accent-color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: color 0.3s ease;
+}
+
+/* Coming Soon text styling - bold red */
+.coming-soon-text {
+    font-weight: bold;
+    color: #d60000;
+}
+
+/* Project link hover effect */
+.link:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+/* Disabled links for "Coming Soon" projects */
+.project-card:has(.coming-soon) .link {
+    color: #ccc;
+    text-decoration: line-through;
+    cursor: not-allowed;
+}
+
+/* Disabled links hover effect */
+.project-card:has(.coming-soon) .link:hover {
+    color: #ccc;
+    text-decoration: line-through;
+}
+
+/* Status banner for projects */
+.status-banner {
+    position: absolute;
+    top: 15px;
+    right: -35px;
+    background-color: #ff9800;
+    color: white;
+    padding: 8px 40px;
+    font-weight: bold;
+    font-size: 12px;
+    transform: rotate(45deg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Status banner for "Coming Soon" projects */
+/* Status banner for "Coming Soon" projects uses a bright, dangerous red */
+.status-banner.coming-soon {
+    background-color: #d60000; /* Bright, strong red */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Status banner for "In Progress" projects */
+/* Status banner for "In Progress" projects uses a purple gradient */
+.status-banner.in-progress {
+  background: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%);
+}
+
+/* ===== CONTACT SECTION ===== */
+
+/* Contact section padding */
+.contact {
+    padding: 80px 0;
+}
+
+/* Contact section heading */
+.contact h2 {
+    font-size: 36px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+/* Contact wrapper uses flexbox to show form and links side by side */
+.contact-wrapper {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/* Contact form styling */
+.contact-form {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Contact links styling */
+.contact-links {
+    flex: 1;
+    min-width: 280px;
+}
+
+/* Contact subheading */
+.contact h3 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: var(--text-primary);
+}
+
+/* Form group for label and input */
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form labels */
+.form-group label {
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+/* Form inputs and textarea */
+.form-group input,
+.form-group textarea {
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+/* Input focus effect */
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--accent-color);
+}
+
+/* Contact links paragraph styling */
+.contact-links p {
+    margin-bottom: 20px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+}
+
+/* Contact links styling */
+.contact-links a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+/* Contact links hover effect */
+.contact-links a:hover {
+    color: #0052a3;
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+
+/* Footer with dark background */
+.footer {
+    background-color: var(--text-primary);
+    color: white;
+    padding: 30px 0;
+    text-align: center;
+}
+
+/* Footer text styling */
+.footer p {
+    color: #ccc;
+}
+
+/* ===== RESPONSIVE DESIGN (Mobile) ===== */
+/* These styles apply when screen width is 768px or smaller */
+
+@media (max-width: 768px) {
+    /* Reduce gap between nav items on smaller screens */
+    .nav-menu {
+        gap: 15px;
+        font-size: 14px;
+    }
+
+    /* Reduce hero heading size */
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    /* Reduce hero subtitle size */
+    .hero-subtitle {
+        font-size: 16px;
+    }
+
+    /* Stack buttons vertically on mobile */
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Make buttons full width on mobile */
+    .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    /* Reduce section heading sizes */
+    h2 {
+        font-size: 28px;
+    }
+
+    /* Stack about info items vertically */
+    .about-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Stack projects vertically */
+    .projects-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Make project cards full width */
+    .project-card {
+        max-width: 100%;
+    }
+
+    /* Stack contact form and links vertically */
+    .contact-wrapper {
+        flex-direction: column;
+        gap: 30px;
+    }
+}
+
+/* Extra small screens (480px and smaller) */
+@media (max-width: 480px) {
+    /* Stack nav items vertically */
+    .nav-container {
+        height: auto;
+        flex-direction: column;
+        padding: 10px 20px;
+    }
+
+    /* Reduce nav menu gap on very small screens */
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    /* Reduce hero section padding */
+    .hero {
+        padding: 60px 0;
+    }
+
+    /* Smaller hero heading for phone screens */
+    .hero h1 {
+        font-size: 28px;
+    }
+
+    /* Smaller hero subtitle for phone screens */
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    /* Reduce padding in all sections on mobile */
+    .about,
+    .skills,
+    .projects,
+    .contact {
+        padding: 50px 0;
+    }
+}

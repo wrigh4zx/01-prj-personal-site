@@ -1,11 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>My Personal Site</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z's Portfolio - Web Development Student</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <!-- Add your HTML content here -->
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">Z's Portfolio</div>
+            <ul class="nav-menu">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <h1>Hi, I'm Z Wright</h1>
+            <p class="hero-subtitle">Web Development Student | Portfolio in Progress</p>
+            <div class="hero-buttons">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-secondary">Contact Me</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <p>I'm a passionate web development student learning to build beautiful and functional websites. I enjoy solving problems and creating clean, user-friendly digital experiences. Currently, I'm expanding my skills in HTML, CSS, and JavaScript.</p>
+            
+            <div class="about-info">
+                <div class="info-item">
+                    <h3>Location</h3>
+                    <p>Harrisonburg, VA, USA</p>
+                </div>
+                <div class="info-item">
+                    <h3>Education</h3>
+                    <p>James Madison University</p>
+                </div>
+                <div class="info-item">
+                    <h3>Interests</h3>
+                    <p>Web Design, Problem-Solving, User Experience, Cybersecurity, Ethical Hacking</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-pill">HTML</div>
+                <div class="skill-pill">CSS</div>
+                <div class="skill-pill">JavaScript (Learning)</div>
+                <div class="skill-pill">Python</div>
+                <div class="skill-pill">Java (Learning)</div>
+                <div class="skill-pill">Git/GitHub</div>
+                <div class="skill-pill">Responsive Design</div>
+                <div class="skill-pill">Web Design Basics</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="status-banner in-progress">In Progress</div>
+                    <h3>Project One</h3>
+                    <p>A brief description of this project. Explain what it does and the technologies you used to build it.</p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="status-banner coming-soon">Coming Soon</div>
+                    <h3>Project Two</h3>
+                    <p><strong style="color: #d60000;">Coming Soon</strong></p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="status-banner coming-soon">Coming Soon</div>
+                    <h3>Project Three</h3>
+                    <p><strong style="color: #d60000;">Coming Soon</strong></p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="status-banner coming-soon">Coming Soon</div>
+                    <h3>Project Four</h3>
+                    <p><strong style="color: #d60000;">Coming Soon</strong></p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="status-banner coming-soon">Coming Soon</div>
+                    <h3>Project Five</h3>
+                    <p><strong style="color: #d60000;">Coming Soon</strong></p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="status-banner coming-soon">Coming Soon</div>
+                    <h3>Project Six</h3>
+                    <p><strong style="color: #d60000;">Coming Soon</strong></p>
+                    <div class="project-links">
+                        <a href="#" class="link">Live Demo</a>
+                        <a href="#" class="link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Get In Touch</h2>
+            <div class="contact-wrapper">
+                <!-- Contact Form -->
+                <div class="contact-form">
+                    <h3>Send me a message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Message</button>
+                    </form>
+                </div>
+
+                <!-- Contact Links -->
+                <div class="contact-links">
+                    <h3>Or connect with me:</h3>
+                    <p><strong>Email:</strong> <a href="mailto:wrigh4zx@dukes.jmu.edu">wrigh4zx@dukes.jmu.edu</a></p>
+                    <p><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/wrigh4zx" target="_blank">linkedin.com/in/wrigh4zx</a></p>
+                    <p><strong>GitHub:</strong> <a href="https://github.com/wrigh4zx" target="_blank">github.com/wrigh4zx</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Z Wright. All rights reserved.</p>
+        </div>
+    </footer>
 </body>
 </html>
