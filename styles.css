@@ -2,15 +2,18 @@
 /* These are color variables we use throughout the website */
 :root {
     /* Color Palette */
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8f9fa;
+    --bg-primary: #f5f1ff; /* Light lavender purple */
+    --bg-secondary: #ede7f6; /* Slightly darker lavender for contrast */
     --text-primary: #1a1a1a;
     --text-secondary: #666666;
     /* Purple gradient colors */
-    --accent-color: #a259ff; /* Purple instead of blue */
+    --accent-color: #a259ff; /* Purple */
     --accent-dark: #6a82fb; /* Darker purple-blue for gradient */
-    --accent-light: #f3ebff; /* Light purple instead of light blue */
+    --accent-light: #f3ebff; /* Light purple */
     --accent-gradient: linear-gradient(90deg, #a259ff 0%, #6a82fb 100%); /* Purple gradient */
+    /* Complementary accent colors - now all purple variations */
+    --accent-warm: #a259ff; /* Same purple for consistency */
+    --accent-cool: #a259ff; /* Same purple for consistency */
     --border-color: #e0e0e0;
     --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     --shadow-hover: 0 4px 16px rgba(0, 0, 0, 0.15);
@@ -118,6 +121,17 @@ body {
     flex-wrap: wrap;
 }
 
+/* Hero image styling */
+.hero-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 0 0 30px 0;
+    object-fit: cover;
+    border: 4px solid var(--accent-color);
+    box-shadow: var(--shadow);
+}
+
 /* ===== BUTTONS ===== */
 
 /* Base button styling */
@@ -161,17 +175,19 @@ body {
 
 /* ===== ABOUT SECTION ===== */
 
-/* About section with light background */
+/* About section with light background and top border */
 .about {
     padding: 80px 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
+    border-top: 4px solid var(--accent-color);
 }
 
-/* About section heading */
+/* About section heading with color */
 .about h2 {
     font-size: 36px;
     margin-bottom: 30px;
     text-align: center;
+    color: var(--accent-color);
 }
 
 /* About section description text */
@@ -213,16 +229,19 @@ body {
 
 /* ===== SKILLS SECTION ===== */
 
-/* Skills section padding */
+/* Skills section with darker background for contrast */
 .skills {
     padding: 80px 0;
+    background-color: var(--bg-secondary);
+    border-top: 4px solid var(--accent-cool);
 }
 
-/* Skills section heading */
+/* Skills section heading with cool accent color */
 .skills h2 {
     font-size: 36px;
     margin-bottom: 50px;
     text-align: center;
+    color: var(--accent-cool);
 }
 
 /* Skills grid uses flexbox to wrap skills in rows */
@@ -233,37 +252,41 @@ body {
     justify-content: center;
 }
 
-/* Skill pills - rounded tag style buttons */
+/* Skill pills with better styling */
 .skill-pill {
-    background-color: var(--accent-light);
+    background-color: white;
     color: var(--accent-color);
     padding: 10px 20px;
     border-radius: 25px;
     font-weight: 600;
     font-size: 14px;
     transition: all 0.3s ease;
+    border: 2px solid var(--accent-color);
 }
 
-/* Skill pill hover effect - uses gradient */
+/* Skill pill hover effect */
 .skill-pill:hover {
-    background: var(--accent-gradient); /* Use gradient on hover */
+    background: var(--accent-gradient);
     color: white;
-    transform: scale(1.05);
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
 }
 
 /* ===== PROJECTS SECTION ===== */
 
-/* Projects section with light background */
+/* Projects section with top border for visual separation */
 .projects {
     padding: 80px 0;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
+    border-top: 4px solid var(--accent-warm);
 }
 
-/* Projects section heading */
+/* Projects section heading with warm accent color */
 .projects h2 {
     font-size: 36px;
     margin-bottom: 50px;
     text-align: center;
+    color: var(--accent-warm);
 }
 
 /* Projects grid uses flexbox to display cards in rows */
@@ -274,7 +297,7 @@ body {
     justify-content: center;
 }
 
-/* Project card styling */
+/* Project card with colored left border */
 .project-card {
     background-color: white;
     padding: 30px;
@@ -285,9 +308,14 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    /* Add flexbox to make cards equal height */
     display: flex;
     flex-direction: column;
+    border-left: 5px solid var(--accent-warm);
+}
+
+/* Change border color to red for Coming Soon projects */
+.project-card:has(.coming-soon) {
+    border-left: 5px solid #d60000;
 }
 
 /* Project card hover effect */
@@ -398,9 +426,11 @@ body {
 
 /* ===== CONTACT SECTION ===== */
 
-/* Contact section padding */
+/* Contact section with darker background */
 .contact {
     padding: 80px 0;
+    background-color: var(--bg-secondary);
+    border-top: 4px solid var(--accent-color);
 }
 
 /* Contact section heading */
@@ -408,6 +438,7 @@ body {
     font-size: 36px;
     margin-bottom: 50px;
     text-align: center;
+    color: var(--accent-color);
 }
 
 /* Contact wrapper uses flexbox to show form and links side by side */
@@ -430,11 +461,11 @@ body {
     min-width: 280px;
 }
 
-/* Contact subheading */
+/* Contact subheading with accent color */
 .contact h3 {
     font-size: 20px;
     margin-bottom: 20px;
-    color: var(--text-primary);
+    color: var(--accent-color);
 }
 
 /* Form group for label and input */
@@ -504,49 +535,79 @@ body {
     color: #ccc;
 }
 
-/* ===== SPLASH SCREEN ===== */
-
-/* Orange splash screen - covers entire page */
+/* ===== SPLASH SCREEN WITH RAIN ANIMATION ===== */
+/* Splash screen covers entire viewport - transparent to show page underneath */
 .splash-screen {
-    /* Position it over everything */
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    /* Make it invisible at first */
+    width: 100vw;
+    height: 100vh;
     display: none;
-    /* Put it above everything else */
     z-index: 9999;
-    /* Prevent clicking through */
     pointer-events: none;
+    background-color: transparent;
+    overflow: hidden;
 }
 
-/* When splash screen is active */
+/* Show splash screen when active */
 .splash-screen.active {
     display: block;
     pointer-events: all;
 }
 
-/* The orange "water" that fills up from bottom */
+/* Orange water that fills up from bottom as rain accumulates */
 .splash-screen::before {
     content: '';
-    /* Position at bottom of screen */
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    /* Start with no height */
-    height: 0;
-    /* Bright orange color */
+    /* Height starts at 0 and fills up to 100% */
+    height: var(--water-height, 0%);
     background-color: #ff9800;
-    /* Animate the height to fill up */
-    transition: height 1.5s ease-out;
+    z-index: 2;
+    /* Smooth transition for water rising */
+    transition: height 0.1s linear;
 }
 
-/* When active, make the water fill to 100% height */
-.splash-screen.active::before {
+/* Container for all the falling raindrops */
+.rain-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Individual raindrop styling */
+.raindrop {
+    position: absolute;
+    top: -20px; /* Start above the screen */
+    border-radius: 50%; /* Make raindrops circular */
+    background-color: rgba(255, 152, 0, 0.8); /* Orange color */
+    /* Animation: fall from top to bottom and repeat */
+    animation: rainFall 2s linear infinite;
+}
+
+/* Animation for raindrops falling from top to bottom */
+@keyframes rainFall {
+    0% {
+        /* Start above the screen */
+        top: -20px;
+        opacity: 1;
+    }
+    90% {
+        /* Most of the fall is visible */
+        opacity: 1;
+    }
+    100% {
+        /* End at bottom of screen and fade out */
+        top: 100vh;
+        opacity: 0.3;
+    }
 }
 
 /* Content inside splash screen */
@@ -561,28 +622,56 @@ body {
     padding: 40px;
     /* Start invisible */
     opacity: 0;
-    /* Fade in after water fills */
-    transition: opacity 0.5s ease 1s;
+    /* Fade in after water fills and stops raining */
+    animation: fadeInMessage 0.5s ease 3s forwards;
+    /* Keep message on top */
+    z-index: 3;
 }
 
-/* Show content after water fills up */
-.splash-screen.active .splash-content {
-    opacity: 1;
-}
-
-/* Splash screen heading */
-.splash-content h2 {
-    font-size: 42px;
-    margin-bottom: 20px;
+/* Fade in animation for message - appears when orange is full */
+@keyframes fadeInMessage {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
 /* Splash screen text */
 .splash-content p {
-    font-size: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Remove the old slideDown animation */
-/* Animation for splash screen text - REMOVED */
+/* Confirmation state - show message on transparent background */
+.splash-screen.confirmation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: all;
+}
+
+/* Hide the orange water and rainfall in confirmation state */
+.splash-screen.confirmation::before,
+.splash-screen.confirmation::after {
+    display: none;
+}
+
+/* Show confirmation message */
+.splash-screen.confirmation .splash-content {
+    position: static;
+    transform: none;
+    background-color: white;
+    color: var(--accent-color);
+    padding: 50px 40px;
+    border-radius: 12px;
+    box-shadow: var(--shadow-hover);
+    opacity: 1;
+    animation: none;
+}
 
 /* ===== RESPONSIVE DESIGN (Mobile) ===== */
 /* These styles apply when screen width is 768px or smaller */
