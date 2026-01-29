@@ -302,6 +302,15 @@ body {
     font-size: 14px;
     transition: all 0.3s ease;
     border: 2px solid var(--accent-color);
+    /* Simple flexbox to line up icon + text */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* Icon size for skills */
+.skill-pill .material-symbols-outlined {
+    font-size: 18px;
 }
 
 /* Skill pill hover effect */
