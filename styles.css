@@ -90,6 +90,46 @@ body {
     color: var(--accent-color);
 }
 
+/* Back to Top Section (space above the footer) */
+.back-to-top-section {
+    padding: 20px 0 12px 0; /* Space above the footer text */
+    background-color: var(--bg-primary); /* Light lavender */
+}
+
+/* Wrapper uses flexbox to keep the button perfectly centered */
+.back-to-top-wrapper {
+    display: flex; /* Simple flexbox centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center;
+}
+
+/* Back to Top Button (larger dark grey box) */
+.back-to-top-button {
+    background-color: white;
+    color: var(--accent-color);
+    border: 3px solid transparent; /* 10px border */
+    border-image: var(--accent-gradient) 1; /* Purple gradient border */
+    min-width: 300px; /* Bigger width */
+    height: 70px; /* Bigger height */
+    font-size: 22px; /* Bigger font size */
+    padding: 18px 28px; /* Bigger padding */
+    cursor: pointer;
+    transform: skewX(-8deg); /* Slight rhombus shape */
+}
+
+/* Keep text straight inside the skewed button */
+.back-to-top-button span {
+    display: inline-block;
+    transform: skewX(8deg);
+}
+
+/* Hover state (slightly lighter grey) */
+.back-to-top-button:hover {
+    background: var(--accent-gradient);
+    color: white;
+    box-shadow: var(--shadow-hover)
+}
+
 /* ===== HERO SECTION ===== */
 
 /* Hero section with gradient background */
@@ -178,7 +218,7 @@ body {
 /* About section with light background and top border */
 .about {
     padding: 80px 0;
-    background-color: var(--bg-primary);
+    background-color: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-primary) 100%);
     border-top: 4px solid var(--accent-color);
 }
 
@@ -232,7 +272,7 @@ body {
 /* Skills section with darker background for contrast */
 .skills {
     padding: 80px 0;
-    background-color: var(--bg-secondary);
+    background-color: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-primary) 100%);
     border-top: 4px solid var(--accent-cool);
 }
 
@@ -277,7 +317,7 @@ body {
 /* Projects section with top border for visual separation */
 .projects {
     padding: 80px 0;
-    background-color: var(--bg-primary);
+    background-color: linear-gradient(135deg, var(--accent-light) 0%, var(--bg-primary) 100%);
     border-top: 4px solid var(--accent-warm);
 }
 
@@ -569,6 +609,8 @@ body {
     z-index: 2;
     /* Smooth transition for water rising */
     transition: height 0.1s linear;
+    /* Wavy top edge using clip-path */
+    clip-path: var(--water-clip-path);
 }
 
 /* Container for all the falling raindrops */
@@ -611,21 +653,22 @@ body {
 }
 
 /* Content inside splash screen */
-.splash-content {
+.success-message {
     /* Position in center of screen */
-    position: absolute;
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
     color: white;
     padding: 40px;
-    /* Start invisible */
+    /* Start hidden */
     opacity: 0;
-    /* Fade in after water fills and stops raining */
-    animation: fadeInMessage 0.5s ease 3s forwards;
-    /* Keep message on top */
+    display: block;
+    /* Keep message on top of water */
     z-index: 3;
+    white-space: nowrap;
+    transition: opacity 0.3s ease;
 }
 
 /* Fade in animation for message - appears when orange is full */
@@ -643,6 +686,50 @@ body {
     font-size: 32px;
     font-weight: bold;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Checkmark icon styling */
+.checkmark {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+/* Checkmark symbol inside circle */
+.checkmark::after {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 10px;
+    width: 15px;
+    height: 30px;
+    border: solid var(--accent-color);
+    border-width: 0 4px 4px 0;
+    transform: rotate(45deg);
+}
+
+/* Success message heading */
+.success-message h2 {
+    font-size: 42px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: white;
+}
+
+/* Success message paragraph */
+.success-message p {
+    font-size: 18px;
+    opacity: 0.9;
+    color: white;
+}
+
+/* Show success message when animation is complete */
+.splash-screen.complete .success-message {
+    opacity: 1;
 }
 
 /* Confirmation state - show message on transparent background */
